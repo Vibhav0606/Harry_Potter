@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Simple Calculator</title>
+</head>
+<body>
+    <script>
+        function add(a, b) {
+            console.log("Result:", a + b);
+        }
+
+        function subtract(a, b) {
+            console.log("Result:", a - b);
+        }
+
+        function multiply(a, b) {
+            console.log("Result:", a * b);
+        }
+
+        function divide(a, b) {
+            if (b == 0) {
+                console.log("Error: Cannot divide by zero");
+            } else {
+                console.log("Result:", a / b);
+            }
+        }
+
+        let a = window.prompt("Enter first number");
+        let b = window.prompt("Enter second number");
+        let input = window.prompt("Enter operation: +, -, *, /");
+
+        if (input === "+") {
+            add(a, b);
+        } 
+        else if (input == "-") {
+            subtract(a, b);
+        } 
+        else if (input == "*") {
+            multiply(a, b);
+        } 
+        else if (input == "/") {
+            divide(a, b);
+        } 
+        else {
+            console.log("Invalid operator");
+        }
+    </script>
+</body>
+</html>

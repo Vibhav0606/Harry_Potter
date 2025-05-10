@@ -1,0 +1,178 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Vibhav BS | Web Developer</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            line-height: 1.6;
+            background-color: #f0f2f5;
+            color: #333;
+        }
+
+        nav {
+            background-color: #1f1f1f;
+            padding: 10px 0;
+        }
+
+        .nav-links {
+            display: flex;
+            justify-content: center;
+            gap: 20px;
+        }
+
+        .nav-links a {
+            color: #ffffff;
+            text-decoration: none;
+            font-weight: bold;
+            padding: 8px 14px;
+            border-radius: 4px;
+            transition: background 0.3s;
+        }
+
+        .nav-links a:hover,
+        .nav-links a:focus {
+            background-color: #333;
+        }
+
+        header.profile-section {
+            display: flex;
+            flex-wrap: wrap;
+            align-items: center;
+            padding: 30px 20px;
+            background-color: #ffffff;
+        }
+
+        .photo {
+            flex: 0 0 150px;
+            margin-right: 20px;
+        }
+
+        .photo img {
+            width: 100%;
+            max-width: 150px;
+            border-radius: 10px;
+        }
+
+        .info {
+            flex: 1;
+        }
+
+        main section {
+            padding: 30px 20px;
+        }
+
+        #Skills {
+            background-color: #e6f2ff;
+        }
+
+        #Contact {
+            background-color: #fff3cd;
+        }
+
+        #SocialMedia {
+            background-color: #e2f0d9;
+        }
+
+        section h2 {
+            margin-top: 0;
+            color: #222;
+        }
+
+        ul {
+            padding-left: 20px;
+        }
+
+        footer {
+            text-align: center;
+            padding: 15px;
+            background-color: #1f1f1f;
+            color: #fff;
+        }
+
+        a {
+            color: #0073e6;
+        }
+
+        a:hover {
+            text-decoration: underline;
+        }
+
+        @media (max-width: 600px) {
+            .profile-section {
+                flex-direction: column;
+                text-align: center;
+            }
+
+            .photo {
+                margin: 0 0 20px 0;
+            }
+        }
+    </style>
+</head>
+<body>
+
+    <nav aria-label="Main Navigation">
+        <div class="nav-links">
+            <a href="#Profile">Profile</a>
+            <a href="#Skills">Skills</a>
+            <a href="#Contact">Contact</a>
+            <a href="#SocialMedia">Social Media</a>
+        </div>
+    </nav>
+
+    <header id="Profile" class="profile-section">
+        <div class="photo">
+            <img src="jpeg" alt="Vibhav BS Profile Photo">
+        </div>
+        <div class="info">
+            <h1>Vibhav BS</h1>
+            <p>Hello! I'm Vibhav BS, a web developer passionate about crafting elegant and responsive websites using modern technologies.</p>
+        </div>
+    </header>
+
+    <main>
+        <section id="Skills">
+            <h2>Skills</h2>
+            <ul>
+                <li>HTML, CSS, JavaScript</li>
+                <li>React, Vue.js</li>
+                <li>Python, Django</li>
+                <li>Git, GitHub</li>
+            </ul>
+        </section>
+
+        <div id="section3">
+            <h1>Contact Me</h1>
+                <form>
+                    <label for="name">Name:</label>
+                    <input type="text" id="name" name="name">
+        
+                    <label for="gmail">Gmail:</label>
+                    <input type="email" id="gmail" name="gmail">
+        
+                    <label for="number">Phone Number:</label>
+                    <input type="tel" id="number" name="number">
+        
+                    <label for="purpose">Purpose</label>
+                    <textarea id="purpose" name="purpose"></textarea>
+        
+                    <button type="submit">Submit</button>
+                </form>
+            </div>
+
+        <section id="SocialMedia">
+            <h2>Social Media</h2>
+            <p>
+                <a href="https://linkedin.com" target="_blank" rel="noopener">LinkedIn</a> |
+                <a href="https://twitter.com" target="_blank" rel="noopener">Twitter</a> |
+                <a href="https://github.com" target="_blank" rel="noopener">GitHub</a>|
+                <a href="https://youtube.com" target="_blank" rel="noopener">Youtube</a>
+            </p>
+        </section>
+    </main>
+</body>
+</html>

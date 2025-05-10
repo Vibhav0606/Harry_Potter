@@ -1,0 +1,260 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>One-Page Modern Website</title>
+  <style>
+    /* Base Styles */
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    html {
+      scroll-behavior: smooth;
+    }
+
+    body {
+      font-family: Arial, sans-serif;
+      line-height: 1.6;
+      background-color: #f4f4f4;
+      color: #333;
+    }
+
+    header {
+      background: #222;
+      color: white;
+      padding: 20px 40px;
+      position: sticky;
+      top: 0;
+      z-index: 1000;
+    }
+
+    nav {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+    }
+
+    .nav-links a {
+      color: white;
+      margin: 0 15px;
+      text-decoration: none;
+      font-weight: bold;
+    }
+
+    .nav-links a:hover {
+      color: #4CAF50;
+    }
+
+    .hero {
+      background: linear-gradient(to right, #4CAF50, #2e7d32);
+      color: white;
+      text-align: center;
+      padding: 100px 20px;
+    }
+
+    .hero h1 {
+      font-size: 48px;
+      margin-bottom: 20px;
+    }
+
+    .hero p {
+      font-size: 20px;
+      margin-bottom: 30px;
+    }
+
+    .hero button {
+      padding: 12px 25px;
+      background: white;
+      color: #4CAF50;
+      border: none;
+      font-weight: bold;
+      border-radius: 5px;
+      cursor: pointer;
+    }
+
+    .hero button:hover {
+      background: #eee;
+    }
+
+    .features {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: center;
+      gap: 30px;
+      padding: 60px 20px;
+      background: #fff;
+    }
+
+    .feature {
+      background: #f0f0f0;
+      padding: 30px;
+      border-radius: 10px;
+      width: 280px;
+      text-align: center;
+      box-shadow: 0 4px 8px rgba(0,0,0,0.05);
+      transition: transform 0.3s;
+    }
+
+    .feature:hover {
+      transform: translateY(-5px);
+    }
+
+    .contact {
+      background: #fafafa;
+      padding: 60px 20px;
+      text-align: center;
+    }
+
+    .contact form {
+      max-width: 500px;
+      margin: auto;
+      display: flex;
+      flex-direction: column;
+      gap: 15px;
+    }
+
+    .contact input,
+    .contact textarea {
+      padding: 12px;
+      border-radius: 5px;
+      border: 1px solid #ccc;
+      font-size: 16px;
+    }
+
+    .contact button {
+      padding: 12px;
+      background-color: #4CAF50;
+      color: white;
+      border: none;
+      font-size: 16px;
+      cursor: pointer;
+      border-radius: 5px;
+    }
+
+    .contact button:hover {
+      background-color: #45a049;
+    }
+
+    footer {
+      background: #222;
+      color: white;
+      text-align: center;
+      padding: 20px;
+    }
+
+    #topBtn {
+      position: fixed;
+      bottom: 20px;
+      right: 20px;
+      background-color: #4CAF50;
+      color: white;
+      padding: 10px 14px;
+      border: none;
+      border-radius: 50%;
+      font-size: 18px;
+      display: none;
+      cursor: pointer;
+    }
+
+    #topBtn:hover {
+      background-color: #388e3c;
+    }
+
+    @media (max-width: 768px) {
+      nav {
+        flex-direction: column;
+      }
+      .nav-links {
+        margin-top: 10px;
+      }
+      .features {
+        flex-direction: column;
+        align-items: center;
+      }
+    }
+  </style>
+</head>
+<body>
+
+  <header>
+    <nav>
+      <div class="logo"><strong>SimpleSite</strong></div>
+      <div class="nav-links">
+        <a href="#home">Home</a>
+        <a href="#features">Features</a>
+        <a href="#contact">Contact</a>
+      </div>
+    </nav>
+  </header>
+
+  <section id="home" class="hero">
+    <h1>Welcome to SimpleSite</h1>
+    <p>A beautiful website with basic HTML, CSS, and JS.</p>
+    <button onclick="showAlert()">Try Me</button>
+  </section>
+
+  <section id="features" class="features">
+    <div class="feature">
+      <h3>Responsive</h3>
+      <p>Works well on all devices using simple CSS.</p>
+    </div>
+    <div class="feature">
+      <h3>Fast</h3>
+      <p>Minimal code for maximum speed.</p>
+    </div>
+    <div class="feature">
+      <h3>Clean</h3>
+      <p>No frameworks or libraries—just pure code.</p>
+    </div>
+  </section>
+
+  <section id="contact" class="contact">
+    <h2>Contact Us</h2>
+    <form onsubmit="submitForm(event)">
+      <input type="text" placeholder="Your Name" required />
+      <input type="email" placeholder="Your Email" required />
+      <textarea rows="4" placeholder="Your Message" required></textarea>
+      <button type="submit">Send</button>
+    </form>
+  </section>
+
+  <footer>
+    <p>&copy; 2025 SimpleSite. All rights reserved.</p>
+  </footer>
+
+  <button id="topBtn" onclick="scrollToTop()">↑</button>
+
+  <script>
+    // Alert on button click
+    function showAlert() {
+      alert("Thanks for clicking!");
+    }
+
+    // Fake form submission
+    function submitForm(event) {
+      event.preventDefault();
+      alert("Form submitted successfully!");
+    }
+
+    // Scroll to top
+    function scrollToTop() {
+      window.scrollTo({ top: 0, behavior: "smooth" });
+    }
+
+    // Show 'Back to Top' button on scroll
+    window.onscroll = function () {
+      const topBtn = document.getElementById("topBtn");
+      if (window.scrollY > 200) {
+        topBtn.style.display = "block";
+      } else {
+        topBtn.style.display = "none";
+      }
+    };
+  </script>
+
+</body>
+</html>

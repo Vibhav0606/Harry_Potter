@@ -1,0 +1,205 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Hogwarts Wizarding Portal</title>
+  <link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@600&family=Roboto&display=swap" rel="stylesheet">
+  <style>
+    body {
+      margin: 0;
+      font-family: 'Roboto', sans-serif;
+      background: url('https://t3.ftcdn.net/jpg/06/54/58/38/360_F_654583843_RlbYZJeihqal93ZWC6UaVxp8rDfEXktZ.jpg') no-repeat center center fixed;
+      background-size: cover;
+      color: #f0e6d2;
+      scroll-behavior: smooth;
+      overflow-x: hidden;
+    }
+
+    header {
+      background: rgba(0,0,0,0.7);
+      padding: 20px;
+      text-align: center;
+      color: #fdd835;
+      font-family: 'Cinzel', serif;
+      font-size: 30px;
+      position: sticky;
+      top: 0;
+      z-index: 999;
+    }
+
+    nav a {
+      color: #fdd835;
+      text-decoration: none;
+      margin: 0 15px;
+      font-weight: bold;
+    }
+
+    .hero {
+      text-align: center;
+      padding: 100px 20px;
+      background: rgba(0, 0, 0, 0.6);
+    }
+
+    .hero h1 {
+      font-family: 'Cinzel', serif;
+      font-size: 56px;
+      text-shadow: 0 0 10px #fdd835;
+    }
+
+    .btn {
+      padding: 12px 30px;
+      font-size: 18px;
+      background: linear-gradient(45deg, #fdd835, #ffeb3b);
+      color: #000;
+      border: none;
+      border-radius: 8px;
+      cursor: pointer;
+      font-weight: bold;
+      margin-top: 20px;
+      transition: 0.3s;
+    }
+
+    .btn:hover {
+      background: #fff176;
+      box-shadow: 0 0 15px #ffee58;
+    }
+
+    .modal {
+      display: none;
+      position: fixed;
+      top: 0; left: 0;
+      width: 100%; height: 100%;
+      background-color: rgba(0, 0, 0, 0.8);
+      backdrop-filter: blur(5px);
+      justify-content: center;
+      align-items: center;
+      z-index: 1000;
+    }
+
+    .modal-content {
+      background: #222;
+      padding: 30px;
+      border-radius: 12px;
+      text-align: center;
+      color: #fff;
+      box-shadow: 0 0 20px #fdd835;
+    }
+
+    .house-section {
+      padding: 60px 20px;
+      background-color: rgba(0, 0, 0, 0.7);
+      text-align: center;
+      display: none;
+    }
+
+    .house-logo {
+      width: 200px;
+      height: auto;
+      margin: 20px auto;
+      transition: transform 0.5s;
+    }
+
+    .house-logo:hover {
+      transform: scale(1.1);
+    }
+
+    .question-container {
+      text-align: left;
+      max-width: 500px;
+      margin: auto;
+    }
+
+    input, textarea {
+      width: 100%;
+      padding: 10px;
+      margin: 10px 0;
+      background: #333;
+      border: none;
+      color: #fff;
+      border-radius: 6px;
+    }
+
+  </style>
+</head>
+<body>
+
+  <header>
+    Hogwarts Wizarding Portal
+    <nav>
+      <a href="#home">Home</a>
+      <a href="#houses">Houses</a>
+      <a href="#contact">Contact</a>
+    </nav>
+  </header>
+
+  <section id="home" class="hero">
+    <h1>Welcome to Hogwarts</h1>
+    <p>Where magic begins and legends are born.</p>
+    <button class="btn" onclick="startSorting()">Get Sorted</button>
+  </section>
+
+  <div id="sortingModal" class="modal">
+    <div class="modal-content">
+      <h2>Sorting Hat Questionnaire</h2>
+      <div class="question-container">
+        <label>What quality defines you best?</label>
+        <input type="text" id="q1">
+
+        <label>How do you solve problems?</label>
+        <input type="text" id="q2">
+
+        <label>What do you value most in friends?</label>
+        <input type="text" id="q3">
+
+        <button class="btn" onclick="sortUser()">Find My House</button>
+      </div>
+      <p id="houseResult">Thinking... 🧙‍♂️</p>
+    </div>
+  </div>
+
+  <section id="houseDisplay" class="house-section">
+    <h2 id="houseName"></h2>
+    <img id="houseImage" class="house-logo">
+    <p id="houseDesc"></p>
+  </section>
+
+  <script>
+    function startSorting() {
+      document.getElementById("sortingModal").style.display = "flex";
+    }
+
+    function sortUser() {
+      let q1 = document.getElementById("q1").value.toLowerCase();
+      let q2 = document.getElementById("q2").value.toLowerCase();
+      let q3 = document.getElementById("q3").value.toLowerCase();
+
+      let houseData = {
+        Gryffindor: { image: "https://i.pinimg.com/originals/79/71/8c/79718c4a978bfa756ca6aafd8387c220.jpg", desc: "Bravery, daring, nerve, and chivalry." },
+        Hufflepuff: { image: "https://cdn.unifiedcommerce.com/content/product/media/large/840391145573.jpg", desc: "Loyalty, patience, fair play, and hard work." },
+        Ravenclaw: { image: "https://m.media-amazon.com/images/I/61kz9OPkvTL.jpg", desc: "Wisdom, wit, creativity, and learning." },
+        Slytherin: { image: "https://sw6.elbenwald.de/media/01/2b/a5/1670024341/E1073991_2.jpg", desc: "Ambition, cunning, leadership, and resourcefulness." }
+      };
+
+      let house = "Hufflepuff";
+
+      if (q1.includes("brave") || q3.includes("courage")) {
+        house = "Gryffindor";
+      } else if (q1.includes("intelligent") || q2.includes("strategy")) {
+        house = "Ravenclaw";
+      } else if (q1.includes("ambition") || q2.includes("power")) {
+        house = "Slytherin";
+      }
+
+      document.getElementById("houseName").textContent = house;
+      document.getElementById("houseImage").src = houseData[house].image;
+      document.getElementById("houseDesc").textContent = houseData[house].desc;
+
+      document.getElementById("houseDisplay").style.display = "block";
+      document.getElementById("sortingModal").style.display = "none";
+    }
+  </script>
+
+</body>
+</html>
+
