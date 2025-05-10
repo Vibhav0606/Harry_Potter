@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Hogwarts Wizarding Portal</title>
+  <link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@600&family=Roboto&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="styles.css" />
+</head>
+<body>
+  <header>
+    Hogwarts Wizarding Portal
+    <nav>
+      <a href="#home">Home</a>
+      <a href="#houses">Houses</a>
+      <a href="#contact">Contact</a>
+    </nav>
+  </header>
+
+  <section id="home" class="hero">
+    <h1>Welcome to Hogwarts</h1>
+    <p>Where magic begins and legends are born.</p>
+    <button class="btn" onclick="startSorting()">Get Sorted</button>
+  </section>
+
+  <div id="sortingModal" class="modal">
+    <div class="modal-content">
+      <h2>Sorting Hat Questionnaire</h2>
+      <div class="question-container">
+        <label>What quality defines you best?</label>
+        <input type="text" id="q1" />
+
+        <label>How do you solve problems?</label>
+        <input type="text" id="q2" />
+
+        <label>What do you value most in friends?</label>
+        <input type="text" id="q3" />
+
+        <button class="btn" onclick="sortUser()">Find My House</button>
+      </div>
+      <p id="houseResult">Thinking... 🧙‍♂️</p>
+    </div>
+  </div>
+
+  <section id="houseDisplay" class="house-section">
+    <h2 id="houseName"></h2>
+    <img id="houseImage" class="house-logo" />
+    <p id="houseDesc"></p>
+  </section>
+
+  <script src="script.js"></script>
+</body>
+</html>
